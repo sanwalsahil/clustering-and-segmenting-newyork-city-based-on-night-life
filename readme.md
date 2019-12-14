@@ -26,6 +26,10 @@ b) what are the primary nightlife activities in these neighborhoods
 
 This project aims to quantify and monitor the state of neighborhoods in a major metropolitan city, New York City, and identify clusters of similar Nighlife activity scenes.
 
+# Target Audience
+The target audience for this could be anyone who is searching for neighborhood in relation with segmentation on basis of nighlife activity .
+this could be used fot reas eastate companies, travellors, tourists , cab services businesses and any other bussiness market that may be effected by the locality and activities based around nighlife in the neighborhood
+
 
 # Stakeholders
 
@@ -37,6 +41,11 @@ Different parties may be interested in a model that is able to quantify neighbor
 
 There are two datasources used - <br>
 
-a) NYU spatial data repository -  I am using the ‘2014 New York City Neighborhood Names’ dataset hosted by NYU’s Spatial Data Repository as the basis for the neighborhood names and associated location centroids . This data will give us details on neighborhoods and there latitude and longitude which will be used to retrieve data from foursquare api
+a) NYU spatial data repository -  I am using the ‘2014 New York City Neighborhood Names’ dataset hosted by NYU’s Spatial Data Repository as the basis for the neighborhood names and associated location centroids . This data will give us details on neighborhoods and there latitude and longitude which will be used to retrieve data from foursquare api. 
 
 b)Foursquare -‘Places API’: I will be using Foursquare’s ‘Places API’ to acquire data related to ‘venues’ (as defined by Foursquare) categorized to be somehow associated with nightlife.Each Foursquare ‘venue’ is assigned a ‘category’ and each ‘category’ is associated with a particular ‘categoryID’.
+
+### Detailed Usage
+from NYU spatial data we get list of neighborhoods and boroughs along with there latitude and longitude. this is used to create a dataframe where our columns are neighborhoods, boroughs  latitude and longitude. not that we we have neighborhoods and there positional coordinateswe can use this to leverage foursquare api.
+
+With foursquare api we get list of venues in a specific radius , we take radius of 1km  and limit the data returned to 50. the foursquare api returns number of paramenters regarding venues in 1km radius of latitudes and longitudes of neighborhoods identified with NYU spatial data . these paramenters include, venue city , venue state, venue category , venue postal code and many more.since we are interested on in nighlife category we filter the data to keep only categories relevant to nightlife
